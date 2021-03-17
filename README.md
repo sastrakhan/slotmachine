@@ -3,18 +3,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://nifty-engelbart-7a61f7.netlify.app"/>
-    <img src="images/slotmachineReadme.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
   <p align="center">
     A Slot Machine project for a coding challenge!
-    <br />
-    <br />
+      <a href="https://nifty-engelbart-7a61f7.netlify.app"/>
+        <img src="images/slotmachineReadme.png" alt="Logo" width="500" height="700">
+      </a>
+      <br />
     <a href="https://nifty-engelbart-7a61f7.netlify.app/">View a Demo of the Slot Machine in Action!</a>
-    ·
   </p>
 </p>
 
