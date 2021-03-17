@@ -3,11 +3,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
+  <a href="https://nifty-engelbart-7a61f7.netlify.app"/>
+    <img src="images/slotmachineReadme.png" alt="Logo" width="500" height="700">
+  </a>
+  <br />
   <p align="center">
     A Slot Machine project for a coding challenge!
-      <a href="https://nifty-engelbart-7a61f7.netlify.app"/>
-        <img src="images/slotmachineReadme.png" alt="Logo" width="500" height="700">
-      </a>
       <br />
     <a href="https://nifty-engelbart-7a61f7.netlify.app/">View a Demo of the Slot Machine in Action!</a>
   </p>
@@ -15,9 +16,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![SlotMachine Screen Shot][slotmachine-screenshot]](https://github.com/sastrakhan/slotmachine/blob/main/images/slotmachineReadme.png)
+# About The Project
 
 This coding challenge asked for best practices and scaleable solutions instead of "hacky" fixes.  Here is a [live version](https://nifty-engelbart-7a61f7.netlify.app/) of the application.  
 
@@ -47,7 +46,7 @@ I wanted to build this project in React since that's the FE framework I've worke
 
 
 <!-- CONTACT -->
-## Contact
+### Contact
 
 Email - sastrakhan@gmail.com
 
