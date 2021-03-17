@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="./dist2/slot-machine.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script type="text/javascript" src="./dist2/slot-machine.js"></script>
+    <script type="text/javascript" src="slot-logic/slot-logic.js"></script>
+    </script>
+    <script>
+      const defaultCreditAmount = 50;
+      let totalCredits = 0;
+
+      const updateCredits = (credits)  => {
+        totalCredits += credits;
+        updateCreditText(totalCredits);
+      }
+
+      //On load set up slotmachine object and pass in a callback function 
+      //when slot results come out to update balance
+      window.onload = function() {
+        updateCredits(defaultCreditAmount);
+        const callbackPostSpin = function(payLine) {
+          toggleBlinking(false);
+
+          updateCredits(-1);
+
+          const pointsWon = calculatePoints(payLine);
+          if (pointsWon > 0){
+            //Hack to display slot machine results and winning amount simultaneously
+            //should be refactored to have slot machine delay its result return
+            setTimeout(function() {
+              updateCredits(pointsWon);
+              document.getElementById("blinktext").innerHTML = `You won ${pointsWon} points!`;
+              toggleBlinking(true);
+            }, 3500);
+          };
+        };
+
+        let machine = document.getElementById('slot-machine');
+        const slot = slotMachine(machine, reels, callbackPostSpin);
+
+        //Run slot machine in fixed mode
+        const spinFixed = () => {
+          const reel1Value = document.getElementById("reel1").value;
+          const reel2Value = document.getElementById("reel2").value;
+          const reel3Value = document.getElementById("reel3").value;
+          slot.defaultSelections = [reel3Value, reel2Value, reel1Value];
+          slot.play()
+        }
+
+        const setBalance = () => {
+          var balance = document.getElementById("balance").value;
+          if (balance > 0) {
+            totalCredits = 0;
+            updateCredits(parseInt(balance));
+          }
+        };
+
+        //Set all button events
+        document.getElementById("playButton").addEventListener('click', () => slot.play());
+        document.getElementById("playButtonFixed").addEventListener('click', () => spinFixed());
+        document.getElementById("setDebugButton").addEventListener('click', () => setBalance());
+      };
+    </script>
+
+    <title>Slot Machine Generator</title>
+  </head>
+  <body>  
+    <center>
+      <h1>Help Sean get a job slot machine</h1>
+      <table>
+        <tr>
+          <th>Slot Result</th>
+          <th>Earnings</th>
+        </tr>
+        <tr>
+          <td>3 Cherries</td>
+          <td>$1000</td>
+        </tr>
+        <tr>
+          <td>3 Sevens in a Row</td>
+          <td>$150</td>
+        </tr>
+        <tr>
+          <td>A Cherry and Seven</td>
+          <td>$75</td>
+        </tr>
+        <tr>
+          <td>3 Three Bars in a Row</td>
+          <td>$50</td>
+        </tr>
+        <tr>
+          <td>3 Two Bars in a Row</td>
+          <td>$20</td>
+        </tr>
+        <tr>
+          <td>3 One Bars in a Row</td>
+          <td>$10</td>
+        </tr>
+      </table>
+    </center>
+    
+    <div id="slot-machine" class="slot-machine"></div>
+    <main>
+      <h2>Current Balance: <span id="totalCredits">$0</span></h2>
+      Change the balance if you want: <input type="number" id="balance" min="0" max="5000">
+      <button id="setDebugButton">Set Balance (Debug Mode)</button>
+      <center><h1 id="blinktext"></h1></center>
+
+      <button id="playButton">Spin Random</button>
+      <br />
+      <button id="playButtonFixed">Spin Fixed</button>
+    </main>
+    <aside>
+      <h3>Fixed Mode</h3>
+      <h4>You may select default values for the reels and click "Spin Fixed" to run them:</h4>
+      <p><i>Reel 1 Default: </i>  
+        <select id = "reel1">  
+          <option value="0"> Three Bar </option>  
+          <option value="1"> One Bar </option>  
+          <option value="2"> Two Bar </option>  
+          <option value="3"> Seven </option>  
+          <option value="4"> Cherry </option>  
+        </select>  
+      </p>
+      <p><i>Reel 2 Default: </i> 
+        <select id = "reel2">  
+          <option value="0"> Three Bar </option>  
+          <option value="1"> One Bar </option>  
+          <option value="2"> Two Bar </option>  
+          <option value="3"> Seven </option>  
+          <option value="4"> Cherry </option>  
+        </select>  
+     </p> 
+     <p><i>Reel 3 Default: </i>  
+        <select id = "reel3">  
+          <option value="0"> Three Bar </option>  
+          <option value="1"> One Bar </option>  
+          <option value="2"> Two Bar </option>  
+          <option value="3"> Seven </option>  
+          <option value="4"> Cherry </option>   
+        </select>  
+     </p>  
+    </aside>
+
+  </body>
+</html>
