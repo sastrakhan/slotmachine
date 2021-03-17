@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="./dist2/slot-machine.css" />
-    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="slotproject.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script type="text/javascript" src="./dist2/slot-machine.js"></script>
@@ -30,7 +30,7 @@
           const pointsWon = calculatePoints(payLine);
           if (pointsWon > 0){
             //Hack to display slot machine results and winning amount simultaneously
-            //should be refactored to have slot machine delay its result return
+            //should be refactored to have slotmachine object delay result return
             setTimeout(function() {
               updateCredits(pointsWon);
               document.getElementById("blinktext").innerHTML = `You won ${pointsWon} points!`;
