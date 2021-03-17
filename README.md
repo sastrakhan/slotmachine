@@ -17,7 +17,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![SlotMachine Screen Shot][slotmachine-screenshot]](images/slotmachineReadme.png)
+[![SlotMachine Screen Shot][slotmachine-screenshot]](https://github.com/sastrakhan/slotmachine/blob/main/images/slotmachineReadme.png)
 
 This coding challenge asked for best practices and scaleable solutions instead of "hacky" fixes.  Here is a [live version](https://nifty-engelbart-7a61f7.netlify.app/) of the application.  
 
