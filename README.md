@@ -25,7 +25,7 @@ I did not have the time to create the optimal solution nor do I think being a st
 Here's what I DID NOT do in this project per your requirements:
 * Logic to handle winnings in the top and bottom line positions; I only handled the center. 
 * A red line marking the center
-* Implimenting nont hacky solutions :smile:
+* Implimenting non hacky solutions :smile:
 
 
 ### Libraries used
